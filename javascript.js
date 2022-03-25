@@ -50,12 +50,29 @@ refresh.addEventListener('click', function () {refreshGrid (gridValue)});
 
 function randomizeColor () {
     const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+    //epilepsy functionality
     //document.body.style.backgroundColor = randomColor;
     event.target.style.backgroundColor = randomColor;
 }
 
 function chameleonifyCells () {
-    const changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('mouseenter', function () {
-        randomizeColor ();
+    const changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('click', function () {
+        changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('mouseover', function holder () {
+            randomizeColor ();
+        }))
     }));
 }
+
+//function chameleonifyCells () {
+    //const changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('mouseover', function () {
+        //randomizeColor ();
+    //}));
+//}
+
+//scelta colore
+//chiarire
+//scurire
+//cancellare
+//solo su pressione
+//UI: blu su azzurrino
+//bottone per grandezze predefinite (16/32/64)
