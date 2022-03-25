@@ -1,16 +1,7 @@
 let k = 16;
+let g = k;
+
 generateGrid (k);
-
-let slider = document.getElementById("myRange");
-let gridValue = slider.value;
-document.getElementById("gridValue").innerHTML = gridValue + 'x' + gridValue;
-
-slider.oninput = function() {
-  gridValue = this.value;
-  document.getElementById("gridValue").innerHTML = gridValue + 'x' + gridValue;
-}
-
-
 
 function generateGrid (k) {
     g = k;
@@ -38,4 +29,12 @@ function clearGrid (k) {
 function refreshGrid (k) {
     clearGrid (g);
     generateGrid (k);
+}
+
+const slider = document.querySelector('.slider');
+let gridValue = slider.value;
+document.querySelector(".display").innerHTML = gridValue + 'x' + gridValue;
+
+slider.oninput = function() {
+    document.querySelector(".display").innerHTML = this.value + 'x' + this.value;
 }
