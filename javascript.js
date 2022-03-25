@@ -57,22 +57,21 @@ function randomizeColor () {
 
 function chameleonifyCells () {
     const changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('click', function () {
-        changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('mouseover', function holder () {
-            randomizeColor ();
-        }))
+        changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('mouseover', randomizeColor));
+        dechameleonifyCells ();
     }));
 }
 
-//function chameleonifyCells () {
-    //const changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('mouseover', function () {
-        //randomizeColor ();
-    //}));
-//}
+function dechameleonifyCells () {
+    const changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('click', function () {
+        changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.removeEventListener('mouseover', randomizeColor))
+        chameleonifyCells ();
+    }))
+}
 
 //scelta colore
 //chiarire
 //scurire
 //cancellare
-//solo su pressione
 //UI: blu su azzurrino
 //bottone per grandezze predefinite (16/32/64)
