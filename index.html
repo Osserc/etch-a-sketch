@@ -12,44 +12,57 @@
     <div class="outer">
         <div class="header">
             <div class="title">
-                The magical whiteboard
+                Osserc's magical whiteboard
+            </div>
+            <div class="subtitle">
+                Click on the board to start drawing, and once again to put your brush away
             </div>
         </div>
         <div class="core">
             <div class="settings">
-                <div>Dimensions</div>
-                <div>
-                    <button class="small">16x16</button>
+                <div class="settings-default">
+                    <div class="subheading">Standard dimensions</div>
+                    <div>
+                        <button class="small">16x16</button>
+                    </div>
+                    <div>
+                        <button class="medium">32x32</button>
+                    </div>
+                    <div>
+                        <button class="large">64x64</button>
+                    </div>
                 </div>
-                <div>
-                    <button class="medium">32x32</button>
-                </div>
-                <div>
-                    <button class="large">64x64</button>
-                </div>
-                <div class="slidecontainer">
-                    <input type="range" min="2" max="100" value="16" class="slider" id="myRange">
-                </div>
-                <div>
-                    <button class="regenerate"><span class="display"></span></button>
+                <div class="settings-custom">
+                    <div class="subheading">Custom size</div>
+                    <div class="slidecontainer">
+                        <input type="range" min="2" max="100" value="16" class="slider" id="myRange">
+                    </div>
+                    <div>
+                        <button class="regenerate"><span class="display"></span></button>
+                    </div>
                 </div>
             </div>
             <div class="grid">
 
             </div>
             <div>
-                <div>
-                    <button class="black">Black</button>
-                </div>
-                <div>
-                    <button class="random">Random</button>
-                </div>
-                <div>
-                    <button class="eraser">Eraser</button>
-                </div>
-                <div>
-                    <input type="color" class="picker">
-                </div>
+                <div class="palette">
+                    <div class="subheading">Palette</div>
+                    <div class="palette-options">
+                        <div>
+                            <button class="black">Black</button>
+                        </div>
+                        <div>
+                            <button class="random">Random</button>
+                        </div>
+                        <div>
+                            <button class="eraser">Eraser</button>
+                        </div>
+                        <div>
+                            <input type="color" class="picker">
+                        </div>
+                    </div>
+                </div>                
             </div>
         </div>
     </div>

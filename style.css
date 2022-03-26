@@ -6,6 +6,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: lightsteelblue;
+    color: dodgerblue;
 }
 
 .outer {
@@ -16,25 +18,101 @@ body {
 }
 
 .header {
+    display: flex;
     padding: 25px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightblue;
+    border-radius: 50px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: cornflowerblue;
+    margin: 25px 0;
+    padding: 15px 150px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: lightskyblue;
+    border-radius: 50px;
+    border-color: cornflowerblue;
+    border: 2px;
+    border-style: solid;
+    padding: 5px 50px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 16px;
+}
+
+.subheading {
+    font-weight: bold;
+    background-color: lightskyblue;
+    border-radius: 50px;
+    border-color: cornflowerblue;
+    border: 2px;
+    border-style: solid;
+    padding: 5px 25px;
 }
 
 .core {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     gap: 25px;
+}
+
+.settings, .palette {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightblue;
+    border-radius: 50px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: cornflowerblue;
+    padding: 25px;
+    gap: 25px;
+}
+
+.settings-default, .settings-custom, .palette-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button {
+    background-color: lightskyblue;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: cornflowerblue;
+    padding: 3px 20px;
+}
+
+.picker {
+    background-color: lightskyblue;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: cornflowerblue;
+    padding: 3px 5px;
 }
 
 .grid {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    border-width: 1px;
+    border-width: 3px;
     border-style: solid;
-    border-color: black;
+    border-color: cornflowerblue;
     width: 500px;
     height: 500px;
+    background-color: white;
 }
 
 .cell {
