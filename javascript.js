@@ -1,5 +1,7 @@
 let k = 16;
 let g = k;
+let c = 0;
+let color = 'black';
 let flexPercentage = ((1 / k) * 100) + '%';
 generateGrid (k);
 chameleonifyCells ();
@@ -48,30 +50,80 @@ slider.oninput = function() {
 const refresh = document.querySelector('.regenerate');
 refresh.addEventListener('click', function () {refreshGrid (gridValue)});
 
+//set up various buttons
+const blackButton = document.querySelector('.black');
+blackButton.addEventListener('click', activateBlack);
+const randomButton = document.querySelector('.random');
+randomButton.addEventListener('click', activateRandom);
+const eraserButton = document.querySelector('.eraser');
+eraserButton.addEventListener('click', activateEraser);
+const colorPicker = document.querySelector('.picker');
+colorPicker.addEventListener('change', pickColor);
+const smallButton = document.querySelector('.small');
+smallButton.addEventListener('click', function () {refreshGrid (16)});
+const mediumButton = document.querySelector('.medium');
+mediumButton.addEventListener('click', function () {refreshGrid (32)});
+const largeButton = document.querySelector('.large');
+largeButton.addEventListener('click', function () {refreshGrid (64)});
+
+//distinguish which "brush" is selected
+function colorSquare () {
+    if (c == 0) {
+        standardColor ();
+    } else if (c == 1) {
+        randomizeColor ();
+    } else if (c == 2) {
+        eraseColor ();
+    } else if (c == 3) {
+        chooseColor ();
+    }
+}
+
+function standardColor () {
+    event.target.style.backgroundColor = 'black';
+}
+
+function activateBlack () {
+    c = 0;
+}
+
 function randomizeColor () {
     const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
-    //epilepsy functionality
-    //document.body.style.backgroundColor = randomColor;
     event.target.style.backgroundColor = randomColor;
+}
+
+function activateRandom () {
+    c = 1;
+}
+
+function eraseColor () {
+    event.target.style.backgroundColor = 'white';
+}
+
+function activateEraser () {
+    c = 2;
+}
+
+function pickColor () {
+    c = 3;
+    color = event.target.value;
+    return color;
+}
+
+function chooseColor () {
+    event.target.style.backgroundColor = color;
 }
 
 function chameleonifyCells () {
     const changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('click', function () {
-        changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('mouseover', randomizeColor));
+        changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('mouseenter', colorSquare));
         dechameleonifyCells ();
     }));
 }
 
 function dechameleonifyCells () {
     const changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.addEventListener('click', function () {
-        changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.removeEventListener('mouseover', randomizeColor))
+        changeColor = document.querySelectorAll('.cell').forEach(changeColor => changeColor.removeEventListener('mouseenter', colorSquare));
         chameleonifyCells ();
     }))
 }
-
-//scelta colore
-//chiarire
-//scurire
-//cancellare
-//UI: blu su azzurrino
-//bottone per grandezze predefinite (16/32/64)
